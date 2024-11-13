@@ -107,15 +107,15 @@ if [ "$SELECT_THEME" -eq 1 ]; then
   echo -e "${BLUE}[+]                  INSTALLASI BLUE PRINT          [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                                   "
-  sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-  sudo nvm install 20
-  sudo node -v
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+  nvm install 20
+  node -v
   cd /var/www/pterodactyl
   yarn
   yarn add cross-env
   sudo apt install -y zip unzip git curl wget
   wget "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
-  sudo unzip release.zip
+  unzip release.zip
   chmod +x blueprint.sh
   bash blueprint.sh
   
