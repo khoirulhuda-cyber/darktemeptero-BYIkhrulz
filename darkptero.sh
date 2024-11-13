@@ -13,19 +13,11 @@ display_welcome() {
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                                                 [+]${NC}"
   echo -e "${BLUE}[+]                AUTO INSTALLER THEMA             [+]${NC}"
-  echo -e "${BLUE}[+]                  © ZERONE OFFC                [+]${NC}"
+  echo -e "${BLUE}[+]                  Tele @rulzhost                 [+]${NC}"
   echo -e "${BLUE}[+]                                                 [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e ""
-  echo -e "script ini di buat untuk mempermudah penginstalasian thema pterodactyle,"
-  echo -e "dilarang keras untuk memperjual belikan."
-  echo -e ""
-  echo -e "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 :"
-  echo -e "0838-5641-0394"
-  echo -e "𝗬𝗢𝗨𝗧𝗨𝗕𝗘 :"
-  echo -e "@ZeroOffc"
-  echo -e "𝗖𝗥𝗘𝗗𝗜𝗧𝗦 :"
-  echo -e "@foxstore"
+  echo -e "Script By Rulz,"
   sleep 4
   clear
 }
@@ -33,21 +25,16 @@ display_welcome() {
 #Update and install jq
 install_jq() {
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]             UPDATE & INSTALL JQ                 [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}[+]             UPDATE PACKAGE                 [+]${NC}"
   echo -e "                                                       "
+  sudo apt update && sudo apt upgrade -y 
   sudo apt update && sudo apt install -y jq
   if [ $? -eq 0 ]; then
     echo -e "                                                       "
-    echo -e "${GREEN}[+] =============================================== [+]${NC}"
-    echo -e "${GREEN}[+]              INSTALL JQ BERHASIL                [+]${NC}"
-    echo -e "${GREEN}[+] =============================================== [+]${NC}"
+    echo -e "${GREEN}[+]              Done             [+]${NC}"
   else
     echo -e "                                                       "
-    echo -e "${RED}[+] =============================================== [+]${NC}"
-    echo -e "${RED}[+]              INSTALL JQ GAGAL                   [+]${NC}"
-    echo -e "${RED}[+] =============================================== [+]${NC}"
+    echo -e "${RED}[+]              BLOCKED                   [+]${NC}"
     exit 1
   fi
   echo -e "                                                       "
@@ -57,16 +44,14 @@ install_jq() {
 #Check user token
 check_token() {
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]               LICENSY ZERONE OFFC             [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
   TOKEN=$(jq -r '.token' token.json)
 
   echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"
   read -r USER_TOKEN
 
-  if [ "$USER_TOKEN" = "zerone" ]; then
+  if [ "$USER_TOKEN" = "rulzcode" ]; then
     echo -e "${GREEN}AKSES BERHASIL${NC}}"
   else
     echo -e "${GREEN}AKSES GAGAL${NC}"
@@ -83,12 +68,10 @@ install_theme() {
     echo -e "${BLUE}[+]                   SELECT THEME                  [+]${NC}"
     echo -e "${BLUE}[+] =============================================== [+]${NC}"
     echo -e "                                                       "
-    echo -e "PILIH THEME YANG INGIN DI INSTALL"
-    echo "1. stellar"
-    echo "2. billing"
-    echo "3. enigma"
-    echo "x. kembali"
-    echo -e "masukan pilihan (1/2/3/x) :"
+    echo "1. Install Blueprint"
+    echo "2. Install Tema"
+    echo "0. kembali"
+    echo -e "masukan pilihan (1/0) :"
     read -r SELECT_THEME
     case "$SELECT_THEME" in
       1)
@@ -121,20 +104,21 @@ if [ -e /root/pterodactyl ]; then
 if [ "$SELECT_THEME" -eq 1 ]; then
   echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                  INSTALLASI THEMA               [+]${NC}"
+  echo -e "${BLUE}[+]                  INSTALLASI BLUE PRINT          [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                                   "
-  sudo cp -rfT /root/pterodactyl /var/www/pterodactyl
-  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-  sudo apt install -y nodejs
-  sudo npm i -g yarn
+  sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+  sudo nvm install 20
+  sudo node -v
   cd /var/www/pterodactyl
-  yarn add react-feather
-  php artisan migrate
-  yarn build:production
-  php artisan view:clear
-  sudo rm /root/C2.zip
-  sudo rm -rf /root/pterodactyl
+  yarn
+  yarn add cross-env
+  sudo apt install -y zip unzip git curl wget
+  wget "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
+  sudo unzip release.zip
+  chmod +x blueprint.sh
+  bash blueprint.sh
+  
 
   echo -e "                                                       "
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
@@ -151,19 +135,9 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
   echo -e "${BLUE}[+]                  INSTALLASI THEMA               [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
-  sudo cp -rfT /root/pterodactyl /var/www/pterodactyl
-  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-  sudo apt install -y nodejs
-  npm i -g yarn
-  cd /var/www/pterodactyl
-  yarn add react-feather
-  php artisan billing:install stable
-  php artisan migrate
-  yarn build:production
-  php artisan view:clear
-  sudo rm /root/C1.zip
-  sudo rm -rf /root/pterodactyl
-
+  sudo wget https://github.com/JasonHorkles/darkenate/releases/download/v2.0.2/darkenate.blueprint
+  blueprint -install darkenate
+  
   echo -e "                                                       "
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
   echo -e "${GREEN}[+]                  INSTALL SUCCESS                [+]${NC}"
