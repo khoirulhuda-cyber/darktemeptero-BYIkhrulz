@@ -145,7 +145,8 @@ elif [ "$SELECT_THEME" -eq 3 ]; then
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                                   "
   nvm install 20
-  node -v
+  apt install nodejs
+  npm i -g yarn
   cd /var/www/pterodactyl
   yarn
   yarn add cross-env
