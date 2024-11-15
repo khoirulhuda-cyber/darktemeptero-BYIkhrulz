@@ -63,4 +63,3 @@ install_jq() {
       echo "Pilihan tidak valid, silahkan coba lagi."
       ;;
   esac
-done
