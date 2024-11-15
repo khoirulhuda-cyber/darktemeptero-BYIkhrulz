@@ -48,18 +48,3 @@ install_jq() {
     echo -e "${RED}[+]              GAGAL                              [+]${NC}"
     exit 1
  
-  case "$MENU_CHOICE" in
-    1)
-      install_theme
-      ;;
-    2)
-      uninstall_theme
-      ;;
-    x)
-      echo "Keluar."
-      exit 0
-      ;;
-    *)
-      echo "Pilihan tidak valid, silahkan coba lagi."
-      ;;
-  esac
