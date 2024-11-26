@@ -46,5 +46,4 @@ install_jq() {
   else
     echo -e "                                                       "
     echo -e "${RED}[+]              GAGAL                              [+]${NC}"
-    exit 1
  
