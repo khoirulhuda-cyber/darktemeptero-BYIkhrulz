@@ -24,21 +24,15 @@ display_welcome() {
 #Update and install jq
 install_jq() {
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                    UPDATETING                   [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}                    UPDATETING                   ${NC}"
   echo -e "                                                       "
   sudo apt update && sudo apt install -y jq
   if [ $? -eq 0 ]; then
     echo -e "                                                       "
-    echo -e "${GREEN}[+] =============================================== [+]${NC}"
-    echo -e "${GREEN}[+]                UPDATE DONE                      [+]${NC}"
-    echo -e "${GREEN}[+] =============================================== [+]${NC}"
+    echo -e "${GREEN}                UPDATE DONE                      ${NC}"
   else
     echo -e "                                                       "
-    echo -e "${RED}[+] =============================================== [+]${NC}"
-    echo -e "${RED}[+]                      GAGAL                      [+]${NC}"
-    echo -e "${RED}[+] =============================================== [+]${NC}"
+    echo -e "${RED}                      GAGAL                      ${NC}"
     exit 1
   fi
   echo -e "                                                       "
@@ -48,7 +42,7 @@ install_jq() {
 #Check user token
 check_token() {
   echo -e "                                                       "
-  echo -e "${BLUE}[+]               LICENSZ RULZ OFFC                 [+]${NC}"
+  echo -e "${BLUE}               LICENSZ RULZ OFFC                 ${NC}"
   echo -e "                                                       "
   TOKEN=$(jq -r '.token' token.json)
 
@@ -130,7 +124,7 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
   
 
   echo -e "                                                       "
-  echo -e "${GREEN}[+]              BERHASIL MENJALANKAN               [+]${NC}"
+  echo -e "${GREEN}              BERHASIL MENJALANKAN               ${NC}"
   echo -e "                                                       "
   sleep 2
   clear
@@ -138,7 +132,7 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
 
 elif [ "$SELECT_THEME" -eq 3 ]; then
   echo -e "                                                       "
-  echo -e "${BLUE}[+]               INSTALLASI BLUEPRINT              [+]${NC}"
+  echo -e "${BLUE}               INSTALLASI BLUEPRINT              ${NC}"
   echo -e "                                                                   "
 
   sudo apt-get install -y ca-certificates curl gnupg
@@ -156,7 +150,7 @@ elif [ "$SELECT_THEME" -eq 3 ]; then
   unzip release.zip
 
   echo -e "                                                       "
-  echo -e "${GREEN}[+]                  INSTALL BERHASIL               [+]${NC}"
+  echo -e "${GREEN}                  INSTALL BERHASIL               ${NC}"
   echo -e ""
   sleep 5
 else
@@ -169,11 +163,11 @@ fi
 # Uninstall theme
 uninstall_theme() {
   echo -e "                                                       "
-  echo -e "${BLUE}[+]                    DELETE THEME                 [+]${NC}"
+  echo -e "${BLUE}                    DELETE THEME                 ${NC}"
   echo -e "                                                       "
   bash <(curl https://raw.githubusercontent.com/Foxstoree/pterodactyl-auto-installer/main/repair.sh)
   echo -e "                                                       "
-  echo -e "${GREEN}[+]                 DELETE THEME SUKSES             [+]${NC}"
+  echo -e "${GREEN}                 DELETE THEME SUKSES             ${NC}"
   echo -e "                                                       "
   sleep 2
   clear
@@ -187,7 +181,7 @@ check_token
 while true; do
   clear
   echo -e "                                                       "
-  echo -e "${BLUE}[+]                   SELECT OPTION                 [+]${NC}"
+  echo -e "${BLUE}                   SELECT OPTION                 ${NC}"
   echo -e "                                                       "
   echo -e "SELECT OPTION :"
   echo "1. Install theme dan blueprint"
