@@ -136,6 +136,7 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
   echo -e "${BLUE}[+]                  INSTALLASI THEMA               [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
+  cd /var/www/pterodactyl
   chmod +x blueprint.sh
   bash blueprint.sh
   
