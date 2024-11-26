@@ -51,7 +51,7 @@ install_jq() {
 check_token() {
   echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]               LICENSY ZERONE OFFC             [+]${NC}"
+  echo -e "${BLUE}[+]               LICENSY Rulz     OFFC             [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
   TOKEN=$(jq -r '.token' token.json)
@@ -78,7 +78,7 @@ install_theme() {
     echo -e "                                                       "
     echo -e "PILIH THEME YANG INGIN DI INSTALL"
     echo "1. stellar"
-    echo "2. billing"
+    echo "2. run blueprint"
     echo "3. blueprint"
     echo "x. kembali"
     echo -e "masukan pilihan (1/2/3/x) :"
@@ -144,18 +144,9 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
   echo -e "${BLUE}[+]                  INSTALLASI THEMA               [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
-  sudo cp -rfT /root/pterodactyl /var/www/pterodactyl
-  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-  sudo apt install -y nodejs
-  npm i -g yarn
-  cd /var/www/pterodactyl
-  yarn add react-feather
-  php artisan billing:install stable
-  php artisan migrate
-  yarn build:production
-  php artisan view:clear
-  sudo rm /root/C1.zip
-  sudo rm -rf /root/pterodactyl
+  chmod +x blueprint.sh
+  bash blueprint.sh
+  
 
   echo -e "                                                       "
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
