@@ -10,12 +10,12 @@ NC='\033[0m'
 # Display welcome message
 display_welcome() {
   echo -e ""
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                                                 [+]${NC}"
-  echo -e "${BLUE}[+]                AUTO INSTALLER THEMA             [+]${NC}"
-  echo -e "${BLUE}[+]                  © Rulz OFFC                    [+]${NC}"
-  echo -e "${BLUE}[+]                                                 [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}|-----------------------------------------------|${NC}"
+  echo -e "${BLUE}|                                               |${NC}"
+  echo -e "${BLUE}|               AUTO INSTALLER THEMA            |${NC}"
+  echo -e "${BLUE}|                 © Rulz OFFC                   |${NC}"
+  echo -e "${BLUE}|                                               |${NC}"
+  echo -e "${BLUE}|-----------------------------------------------|${NC}"
   echo -e ""
   sleep 4
   clear
@@ -25,19 +25,19 @@ display_welcome() {
 install_jq() {
   echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]             UPDATE & INSTALL JQ                 [+]${NC}"
+  echo -e "${BLUE}[+]                    UPDATETING                   [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
   sudo apt update && sudo apt install -y jq
   if [ $? -eq 0 ]; then
     echo -e "                                                       "
     echo -e "${GREEN}[+] =============================================== [+]${NC}"
-    echo -e "${GREEN}[+]              INSTALL JQ BERHASIL                [+]${NC}"
+    echo -e "${GREEN}[+]                UPDATE DONE                      [+]${NC}"
     echo -e "${GREEN}[+] =============================================== [+]${NC}"
   else
     echo -e "                                                       "
     echo -e "${RED}[+] =============================================== [+]${NC}"
-    echo -e "${RED}[+]              INSTALL JQ GAGAL                   [+]${NC}"
+    echo -e "${RED}[+]                      GAGAL                      [+]${NC}"
     echo -e "${RED}[+] =============================================== [+]${NC}"
     exit 1
   fi
@@ -48,9 +48,7 @@ install_jq() {
 #Check user token
 check_token() {
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]               LICENSZ Rulz OFFC                 [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}[+]               LICENSZ RULZ OFFC                 [+]${NC}"
   echo -e "                                                       "
   TOKEN=$(jq -r '.token' token.json)
 
@@ -70,14 +68,12 @@ check_token() {
 install_theme() {
   while true; do
     echo -e "                                                       "
-    echo -e "${BLUE}[+] =============================================== [+]${NC}"
-    echo -e "${BLUE}[+]                 Berurutan 3 2 1                 [+]${NC}"
-    echo -e "${BLUE}[+] =============================================== [+]${NC}"
+    echo -e "${BLUE}                 Berurutan 3 2 1                 ${NC}"
     echo -e "                                                       "
-    echo -e "NOTE : PAS INSTAL BLUEPRINT KALIAN PENCET Y TERUS ENTER SAMPE SELESAI"
+    echo -e "NOTE : PAS INSTAL BLUEPRINT KALIAN PENCET A TERUS ENTER"
     echo "1. install tema darkenate"
     echo "2. run blueprint"
-    echo "3. blueprint"
+    echo "3. install blueprint"
     echo "x. kembali"
     echo -e "masukan pilihan (1/2/3/x) :"
     read -r SELECT_THEME
@@ -111,18 +107,14 @@ if [ -e /root/pterodactyl ]; then
   
 if [ "$SELECT_THEME" -eq 1 ]; then
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                  INSTALLASI THEMA               [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "                                                                   "
+  echo -e "${BLUE}                INSTALLASI THEMA               ${NC}"
+  echo -e "                                                       "
   cd /var/www/pterodactyl
   wget https://github.com/JasonHorkles/darkenate/releases/download/v2.0.2/darkenate.blueprint
   blueprint -install darkenate
 
   echo -e "                                                       "
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "${GREEN}[+]                   INSTALL SUCCESS               [+]${NC}"
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}                 INSTALL BERHASIL                ${NC}"
   echo -e ""
   sleep 2
   clear
@@ -130,9 +122,7 @@ if [ "$SELECT_THEME" -eq 1 ]; then
 
 elif [ "$SELECT_THEME" -eq 2 ]; then
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                  INSTALLASI THEMA               [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}      MENJALANKAN BLUEPRINT TUNGGU SEBENTAR      ${NC}"
   echo -e "                                                       "
   cd /var/www/pterodactyl
   chmod +x blueprint.sh
@@ -140,9 +130,7 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
   
 
   echo -e "                                                       "
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "${GREEN}[+]                  INSTALL SUCCESS                [+]${NC}"
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]              BERHASIL MENJALANKAN               [+]${NC}"
   echo -e "                                                       "
   sleep 2
   clear
@@ -150,9 +138,7 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
 
 elif [ "$SELECT_THEME" -eq 3 ]; then
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                  INSTALLASI THEMA               [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}[+]               INSTALLASI BLUEPRINT              [+]${NC}"
   echo -e "                                                                   "
 
   sudo apt-get install -y ca-certificates curl gnupg
@@ -170,9 +156,7 @@ elif [ "$SELECT_THEME" -eq 3 ]; then
   unzip release.zip
 
   echo -e "                                                       "
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "${GREEN}[+]                   INSTALL SUCCESS               [+]${NC}"
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]                  INSTALL BERHASIL               [+]${NC}"
   echo -e ""
   sleep 5
 else
@@ -185,15 +169,11 @@ fi
 # Uninstall theme
 uninstall_theme() {
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    DELETE THEME                 [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
   bash <(curl https://raw.githubusercontent.com/Foxstoree/pterodactyl-auto-installer/main/repair.sh)
   echo -e "                                                       "
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
   echo -e "${GREEN}[+]                 DELETE THEME SUKSES             [+]${NC}"
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
   sleep 2
   clear
@@ -207,9 +187,7 @@ check_token
 while true; do
   clear
   echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                   SELECT OPTION                 [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
   echo -e "SELECT OPTION :"
   echo "1. Install theme dan blueprint"
@@ -227,7 +205,7 @@ while true; do
       uninstall_theme
       ;;
     x)
-      echo "Keluar dari skrip."
+      echo "Selamat Tinggal My Master :) "
       exit 0
       ;;
     *)
