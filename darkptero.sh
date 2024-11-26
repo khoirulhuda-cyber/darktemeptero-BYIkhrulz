@@ -13,12 +13,10 @@ display_welcome() {
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                                                 [+]${NC}"
   echo -e "${BLUE}[+]                AUTO INSTALLER THEMA             [+]${NC}"
-  echo -e "${BLUE}[+]                  © Rulz     OFFC                [+]${NC}"
+  echo -e "${BLUE}[+]                  © Rulz OFFC                    [+]${NC}"
   echo -e "${BLUE}[+]                                                 [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e ""
-  echo -e "script ini di buat untuk mempermudah penginstalasian thema pterodactyle,"
-  echo -e "dilarang keras untuk memperjual belikan."
   sleep 4
   clear
 }
@@ -51,7 +49,7 @@ install_jq() {
 check_token() {
   echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]               LICENSY Rulz     OFFC             [+]${NC}"
+  echo -e "${BLUE}[+]               LICENSZ Rulz OFFC                 [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
   TOKEN=$(jq -r '.token' token.json)
@@ -73,10 +71,10 @@ install_theme() {
   while true; do
     echo -e "                                                       "
     echo -e "${BLUE}[+] =============================================== [+]${NC}"
-    echo -e "${BLUE}[+]                   SELECT THEME                  [+]${NC}"
+    echo -e "${BLUE}[+]                 Berurutan 3 2 1                 [+]${NC}"
     echo -e "${BLUE}[+] =============================================== [+]${NC}"
     echo -e "                                                       "
-    echo -e "PILIH THEME YANG INGIN DI INSTALL"
+    echo -e "NOTE : PAS INSTAL BLUEPRINT KALIAN PENCET Y TERUS ENTER SAMPE SELESAI"
     echo "1. install tema darkenate"
     echo "2. run blueprint"
     echo "3. blueprint"
