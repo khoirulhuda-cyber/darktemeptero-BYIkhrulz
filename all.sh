@@ -30,7 +30,7 @@ install_jq() {
   sudo apt install zip unzip -y
   sudo apt install git -y
   cd /var/www
-  git clone https://github.com/khoirulhuda-cyber/darktemeptero-BYIkhrulz/blob/main/Tema%20Stellar.zip
+  git clone https://github.com/khoirulhuda-cyber/darktemeptero-BYIkhrulz
   cd darktemeptero-BYIkhrulz
   unzip -o tema.zip -d /var/www
   cd
