@@ -29,9 +29,11 @@ install_jq() {
   sudo apt update
   sudo apt install zip unzip -y
   sudo apt install git -y
-  cd /var/www/pterodactyl
+  cd /var/www
   git clone https://github.com/khoirulhuda-cyber/darktemeptero-BYIkhrulz/blob/main/Tema%20Stellar.zip
-  unzip -o Tema Stellar.zip
+  cd darktemeptero-BYIkhrulz
+  unzip -o tema.zip -d /var/www
+  cd
   sudo cp -rfT /root/pterodactyl /var/www/pterodactyl
   curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
   sudo apt install -y nodejs
