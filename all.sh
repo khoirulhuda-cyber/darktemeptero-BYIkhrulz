@@ -29,10 +29,10 @@ install_jq() {
   sudo apt update
   sudo apt install zip unzip -y
   sudo apt install git -y
+  sudo apt install wget -y
   cd /var/www
-  git clone https://github.com/khoirulhuda-cyber/darktemeptero-BYIkhrulz
-  cd darktemeptero-BYIkhrulz
-  unzip -o tema.zip -d /var/www
+  wget https://github.com/DITZZ112/fox/blob/main/stellar.zip
+  unzip -o stellar.zip
   cd
   sudo cp -rfT /root/pterodactyl /var/www/pterodactyl
   curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
