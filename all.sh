@@ -31,8 +31,9 @@ install_jq() {
   sudo apt install git -y
   sudo apt install wget -y
   cd /var/www
-  wget https://github.com/DITZZ112/fox/blob/main/stellar.zip
-  unzip -o stellar.zip
+  git clone https://github.com/DITZZ112/fox
+  cd fox
+  unzip -o stellar.zip -d /var/www
   cd
   sudo cp -rfT /root/pterodactyl /var/www/pterodactyl
   curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
