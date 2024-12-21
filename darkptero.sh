@@ -68,6 +68,7 @@ install_theme() {
     echo "1. install tema darkenate"
     echo "2. run blueprint"
     echo "3. install blueprint"
+    echo "4. i???????"
     echo "x. kembali"
     echo -e "masukan pilihan (1/2/3/x) :"
     read -r SELECT_THEME
@@ -129,6 +130,7 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
   sleep 2
   clear
   return
+  
 elif [ "$SELECT_THEME" -eq 4 ]; then
   echo -e "                                                       "
   echo -e "${BLUE}      MENGINSTALL TEMA DACTYL PREMIUM      ${NC}"
