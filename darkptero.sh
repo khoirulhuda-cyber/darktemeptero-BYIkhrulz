@@ -147,6 +147,8 @@ elif [ "$SELECT_THEME" -eq 4 ]; then
   cd darktemeptero-BYIkhrulz
   unzip -o dactyl.zip -d /var/www
   cd /var/www/pterodactyl
+  sudo npm install -g n
+  sudo n lts
   yarn install
   yarn run build:production
   
