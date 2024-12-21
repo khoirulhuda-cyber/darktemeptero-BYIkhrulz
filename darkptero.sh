@@ -161,6 +161,28 @@ elif [ "$SELECT_THEME" -eq 4 ]; then
   clear
   return
 
+elif [ "$SELECT_THEME" -eq 5 ]; then
+  echo -e "                                                       "
+  echo -e "${BLUE}      MENGINSTALL TEMA DACTYL PREMIUM      ${NC}"
+  echo -e "                                                       "
+  sudo apt update -y
+  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+  npm i -g yarn
+  apt install nodejs -y
+  apt install npm -y
+  npm i -g yarn
+  cd /var/www/pterodactyl
+  yarn
+  php artisan billing:install stable
+  yarn build:production
+
+  echo -e "                                                       "
+  echo -e "${GREEN}              BERHASIL MENJALANKAN               ${NC}"
+  echo -e "                                                       "
+  sleep 2
+  clear
+  return
+
 elif [ "$SELECT_THEME" -eq 3 ]; then
   echo -e "                                                       "
   echo -e "${BLUE}               INSTALLASI BLUEPRINT              ${NC}"
