@@ -129,6 +129,25 @@ elif [ "$SELECT_THEME" -eq 2 ]; then
   sleep 2
   clear
   return
+elif [ "$SELECT_THEME" -eq 4 ]; then
+  echo -e "                                                       "
+  echo -e "${BLUE}      MENGINSTALL TEMA DACTYL PREMIUM      ${NC}"
+  echo -e "                                                       "
+  cd /var/www/
+  git clone https://github.com/khoirulhuda-cyber/darktemeptero-BYIkhrulz
+  cd darktemeptero-BYIkhrulz
+  unzip -o dactyl.zip -d /var/www
+  yarn install
+  yarn run build:production
+  
+  
+
+  echo -e "                                                       "
+  echo -e "${GREEN}              BERHASIL MENJALANKAN               ${NC}"
+  echo -e "                                                       "
+  sleep 2
+  clear
+  return
 
 elif [ "$SELECT_THEME" -eq 3 ]; then
   echo -e "                                                       "
