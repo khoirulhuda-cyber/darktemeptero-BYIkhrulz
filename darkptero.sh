@@ -69,6 +69,7 @@ install_theme() {
     echo "2. run blueprint"
     echo "3. install blueprint"
     echo "4. i???????"
+    echo "5. BilingggWemxgay"
     echo "x. kembali"
     echo -e "masukan pilihan (1/2/3/x) :"
     read -r SELECT_THEME
@@ -86,6 +87,10 @@ install_theme() {
         break
         ;; 
       4)
+        THEME_URL=$(echo -e "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x67\x69\x74\x68\x75\x62\x2E\x63\x6F\x6D\x2F\x44\x49\x54\x5A\x5A\x31\x31\x32\x2F\x66\x6F\x78\x78\x68\x6F\x73\x74\x74\x2F\x72\x61\x77\x2F\x6D\x61\x69\x6E\x2F\x43\x33\x2E\x7A\x69\x70")
+        break
+        ;; 
+      5)
         THEME_URL=$(echo -e "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x67\x69\x74\x68\x75\x62\x2E\x63\x6F\x6D\x2F\x44\x49\x54\x5A\x5A\x31\x31\x32\x2F\x66\x6F\x78\x78\x68\x6F\x73\x74\x74\x2F\x72\x61\x77\x2F\x6D\x61\x69\x6E\x2F\x43\x33\x2E\x7A\x69\x70")
         break
         ;; 
@@ -153,28 +158,6 @@ elif [ "$SELECT_THEME" -eq 4 ]; then
   yarn run build:production
   
   
-
-  echo -e "                                                       "
-  echo -e "${GREEN}              BERHASIL MENJALANKAN               ${NC}"
-  echo -e "                                                       "
-  sleep 2
-  clear
-  return
-
-elif [ "$SELECT_THEME" -eq 5 ]; then
-  echo -e "                                                       "
-  echo -e "${BLUE}      MENGINSTALL TEMA DACTYL PREMIUM      ${NC}"
-  echo -e "                                                       "
-  sudo apt update -y
-  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-  npm i -g yarn
-  apt install nodejs -y
-  apt install npm -y
-  npm i -g yarn
-  cd /var/www/pterodactyl
-  yarn
-  php artisan billing:install stable
-  yarn build:production
 
   echo -e "                                                       "
   echo -e "${GREEN}              BERHASIL MENJALANKAN               ${NC}"
