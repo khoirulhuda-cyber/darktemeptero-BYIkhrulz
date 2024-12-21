@@ -139,10 +139,14 @@ elif [ "$SELECT_THEME" -eq 4 ]; then
   echo -e "                                                       "
   echo -e "${BLUE}      MENGINSTALL TEMA DACTYL PREMIUM      ${NC}"
   echo -e "                                                       "
+  sudo apt update -y
+  sudo apt install npm
+  npm i -g yarn
   cd /var/www/
   git clone https://github.com/khoirulhuda-cyber/darktemeptero-BYIkhrulz
   cd darktemeptero-BYIkhrulz
   unzip -o dactyl.zip -d /var/www
+  cd /var/www/pterodactyl
   yarn install
   yarn run build:production
   
