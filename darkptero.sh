@@ -94,6 +94,10 @@ install_theme() {
         THEME_URL=$(echo -e "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x67\x69\x74\x68\x75\x62\x2E\x63\x6F\x6D\x2F\x44\x49\x54\x5A\x5A\x31\x31\x32\x2F\x66\x6F\x78\x78\x68\x6F\x73\x74\x74\x2F\x72\x61\x77\x2F\x6D\x61\x69\x6E\x2F\x43\x33\x2E\x7A\x69\x70")
         break
         ;; 
+      6)
+        THEME_URL=$(echo -e "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x67\x69\x74\x68\x75\x62\x2E\x63\x6F\x6D\x2F\x44\x49\x54\x5A\x5A\x31\x31\x32\x2F\x66\x6F\x78\x78\x68\x6F\x73\x74\x74\x2F\x72\x61\x77\x2F\x6D\x61\x69\x6E\x2F\x43\x33\x2E\x7A\x69\x70")
+        break
+        ;; 
       x)
         return
         ;;
@@ -120,6 +124,31 @@ if [ "$SELECT_THEME" -eq 1 ]; then
   echo -e "                                                       "
   echo -e "${GREEN}                 INSTALL BERHASIL                ${NC}"
   echo -e ""
+  sleep 2
+  clear
+  return
+
+elif [ "$SELECT_THEME" -eq 6 ]; then
+  echo -e "                                                       "
+  echo -e "${BLUE}      MENJALANKAN BLUEPRINT TUNGGU SEBENTAR      ${NC}"
+  echo -e "                                                       "
+  apt update
+  apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
+  LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
+  apt -y install php8.2 php8.2-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
+  curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+  mkdir /var/www/paymenter
+  cd /var/www/paymenter
+  curl -Lo paymenter.tar.gz https://github.com/paymenter/paymenter/releases/latest/download/paymenter.tar.gz
+  tar -xzvf paymenter.tar.gz
+  chmod -R 755 storage/* bootstrap/cache/
+
+
+  
+
+  echo -e "                                                       "
+  echo -e "${GREEN}              BERHASIL MENJALANKAN               ${NC}"
+  echo -e "                                                       "
   sleep 2
   clear
   return
