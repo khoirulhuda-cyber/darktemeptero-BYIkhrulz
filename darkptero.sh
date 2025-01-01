@@ -166,6 +166,32 @@ elif [ "$SELECT_THEME" -eq 4 ]; then
   clear
   return
 
+elif [ "$SELECT_THEME" -eq 5 ]; then
+  echo -e "                                                       "
+  echo -e "${BLUE}      MENGINSTALL TEMA BILLING      ${NC}"
+  echo -e "                                                       "
+  apt install git-y
+  cd /var/www/pterodactyl
+  git clone https://github.com/khoirulhuda-cyber/darktemeptero-BYIkhrulz
+  cd darktemeptero-BYIkhrulz
+  unzip -o biliing.zip -d /var/www/pterodactyl
+  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+  apt install nodejs -y
+  apt install npm -y
+  npm i -g yarn
+  cd /var/www/pterodactyl
+  yarn
+  php artisan billing:install stable
+  yarn build:production
+  
+
+  echo -e "                                                       "
+  echo -e "${GREEN}              BERHASIL MENJALANKAN               ${NC}"
+  echo -e "                                                       "
+  sleep 2
+  clear
+  return
+
 elif [ "$SELECT_THEME" -eq 3 ]; then
   echo -e "                                                       "
   echo -e "${BLUE}               INSTALLASI BLUEPRINT              ${NC}"
