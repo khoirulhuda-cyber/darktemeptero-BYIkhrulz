@@ -86,7 +86,7 @@ install_theme() {
     echo -e "NOTE : PAS INSTAL BLUEPRINT KALIAN PENCET A TERUS ENTER"
     echo "1. install tema darkenate"
     echo "2. run blueprint"
-    echo "3. install blueprint"
+    echo "3. install dan jalankan blueprint"
     echo "x. kembali"
     echo -e "masukan pilihan (1/2/3/x) :"
     read -r SELECT_THEME
@@ -167,6 +167,8 @@ elif [ "$SELECT_THEME" -eq 3 ]; then
   sudo apt install -y zip unzip git curl wget
   wget "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
   unzip release.zip
+  chmod +x blueprint.sh
+  bash blueprint.sh
 
   echo -e "                                                       "
   echo -e "${GREEN}                  INSTALL BERHASIL               ${NC}"
